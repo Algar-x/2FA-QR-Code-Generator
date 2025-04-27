@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador y Verificador 2FA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Escanea este código QR</h1>
+        <img src="data:image/png;base64,{{ qr_code }}" alt="Código QR">
+
+        <h2>Verificar código TOTP</h2>
+        <form method="POST">
+            <input type="text" name="code" id="code" placeholder="Código de 6 dígitos" required>
+            <br>
+            <button type="submit">Verificar</button>
+        </form>
+
+        {% if message %}
+            <p><strong>{{ message }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
