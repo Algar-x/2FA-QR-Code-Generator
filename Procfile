@@ -1,1 +1,1 @@
-web: gunicorn 2fa_qr_app.app:app
+web: gunicorn app:app
